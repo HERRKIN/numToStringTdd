@@ -2,15 +2,6 @@ var app = function (n){
   console.log(this.mil(n))
 }
 
-app.after30 = function (str, num) {
-  if (num > 0) {
-    var res = `${str} y ${this.unit(num)}`
-    return res
-  } else {
-    return str
-  }
-}
-
 app.countDigits = function (n) {
   if (n === 0) {
     return 1
@@ -24,6 +15,15 @@ app.unit = function (n) {
 }
 
 app.dec = function (n) {
+  var self = this
+  var after30 = function (str, num) {
+    if (num > 0) {
+      var res = `${str} y ${self.unit(num)}`
+      return res
+    } else {
+      return str
+    }
+  }
   var dec = parseInt(n / 10)
   var r = n % 10
   var numeros = []
@@ -37,19 +37,19 @@ app.dec = function (n) {
       numeros = ['veinte', 'veintiuno', 'veintidos', 'veintitres', 'veinticuatro', 'veinticinco', 'veintiseis', 'veintisiete', 'veintiocho', 'veintinueve']
       return numeros[r]
     case 3:
-      return this.after30('treinta', r)
+      return after30('treinta', r)
     case 4:
-      return this.after30('cuarenta', r)
+      return after30('cuarenta', r)
     case 5:
-      return this.after30('cincuenta', r)
+      return after30('cincuenta', r)
     case 6:
-      return this.after30('sesenta', r)
+      return after30('sesenta', r)
     case 7:
-      return this.after30('setenta', r)
+      return after30('setenta', r)
     case 8:
-      return this.after30('ochenta', r)
+      return after30('ochenta', r)
     case 9:
-      return this.after30('noventa', r)
+      return after30('noventa', r)
   }
 }
 
