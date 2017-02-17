@@ -1,0 +1,14 @@
+{
+  "name": "codingdojo2",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": {},
+  "scripts": {
+    "start": "node app",
+    "test":"mocha"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^3.5.0"
+  }
+}
